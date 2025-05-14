@@ -11,8 +11,9 @@ const Container = styled.div`
 const Header = styled.div`
   background: linear-gradient(120deg, #0052D4, #4364F7, #6FB1FC);
   color: white;
-  padding: 2rem 4rem;
+  padding: 2rem;
   height: 200px;
+  width: 100%;
 `;
 
 const Title = styled.h1`
@@ -27,7 +28,8 @@ const Subtitle = styled.p`
 
 const Content = styled.div`
   background: #f5f5f5;
-  padding: 2rem 4rem;
+  padding: 2rem;
+  width: 100%;
 `;
 
 const SkillsTitle = styled.h2`
@@ -38,10 +40,11 @@ const SkillsTitle = styled.h2`
 `;
 
 const JobGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  padding: 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
 `;
 
 const JobCard = styled.div`
