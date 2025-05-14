@@ -6,7 +6,6 @@ import Signup from './pages/Signup'
 import Navbar from './components/Navbar'
 import ValidateIsLoggedIn from './validators/ValidateIsLoggedIn'
 import ValidateIsLoggedOut from './validators/ValidateIsLoggedOut'
-
 function App() {
 
 
