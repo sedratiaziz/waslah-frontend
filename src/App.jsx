@@ -6,42 +6,32 @@ import Signup from './pages/Signup'
 import Navbar from './components/Navbar'
 import ValidateIsLoggedIn from './validators/ValidateIsLoggedIn'
 import ValidateIsLoggedOut from './validators/ValidateIsLoggedOut'
-import styled from 'styled-components'
-
-const AppContainer = styled.div`
-  display: flex;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-`;
-
-const MainContent = styled.main`
-  flex: 1;
-  margin-left: 250px;
-  padding: 0;
-  width: calc(100vw - 250px);
-  overflow-x: hidden;
-`;
+import Internships from './pages/Internships'
+import Reports from './pages/Reports'
+import CreateReport from './pages/CreateReport'
+import DM from './pages/DM'
 
 function App() {
-  return (
-    <AppContainer>
-      <Navbar />
-      <MainContent>
-        <Routes>
-          {/* Removed Auth Temporarily, will be returned when i finish development. */}
-          {/* <Route path="/" element={<ValidateIsLoggedIn><Homepage/></ValidateIsLoggedIn>}/>
-          <Route path="/signup" element={<ValidateIsLoggedOut><Signup/></ValidateIsLoggedOut>}/>
-          <Route path="/login" element={<ValidateIsLoggedOut><Login/></ValidateIsLoggedOut>}/> */}
 
-          <Route path="/" element={<Homepage/>}/>
-          <Route path="/signup" element={<Signup/>}/>
-          <Route path="/login" element={<Login/>}/>
-        </Routes>
-      </MainContent>
-    </AppContainer>
-  );
+
+  return (
+    <>
+      <Navbar/>
+      <Routes>
+        <Route path="/" element={<Homepage/>}/>
+        <Route path="/signup" element={<Signup/>}/>
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/internships" element={<Internships/>}/>
+        <Route path="/reports" element={<Reports/>}/>
+        <Route path="/create-report" element={<CreateReport/>}/>
+        <Route path="/chat" element={<DM/>}/>
+{/* 
+        <Route path="/" element={<ValidateIsLoggedIn><Homepage/></ValidateIsLoggedIn>}/>
+        <Route path="/signup" element={<ValidateIsLoggedOut><Signup/></ValidateIsLoggedOut>}/>
+        <Route path="/login" element={<ValidateIsLoggedOut><Login/></ValidateIsLoggedOut>}/> */}
+      </Routes>
+    </>
+  )
 }
 
 export default App

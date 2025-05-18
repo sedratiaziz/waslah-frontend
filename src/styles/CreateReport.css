@@ -1,0 +1,99 @@
+.create-report-main {
+  margin-left: 280px;
+  padding: 2.5rem 3rem;
+  min-height: 100vh;
+  background: #fff;
+  font-family: 'Inter', Arial, sans-serif;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.create-report-form {
+  max-width: 600px;
+  width: 100%;
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.create-report-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+  color: #222;
+}
+
+.create-report-subtitle {
+  color: #7b8bb2;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.create-report-label {
+  font-size: 1.08rem;
+  font-weight: 500;
+  color: #222;
+  margin-bottom: 0.5rem;
+}
+
+.create-report-select {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: #fafbfc;
+  margin-bottom: 0.5rem;
+  appearance: none;
+}
+
+.create-report-slider-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.create-report-slider {
+  flex: 1;
+  accent-color: #38a8ff;
+  height: 4px;
+}
+
+.create-report-score-value {
+  font-size: 1.1rem;
+  color: #222;
+  min-width: 2rem;
+  text-align: right;
+}
+
+.create-report-textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 1rem;
+  background: #fafbfc;
+  resize: vertical;
+}
+
+.create-report-submit {
+  margin-top: 1.5rem;
+  width: 100%;
+  background: #38a8ff;
+  color: #fff;
+  border: none;
+  border-radius: 2rem;
+  padding: 1.1rem 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.create-report-submit:hover {
+  background: #1e90ff;
+}
