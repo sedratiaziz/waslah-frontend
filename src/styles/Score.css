@@ -1,0 +1,76 @@
+body {
+  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  background: #f4faff;
+  margin: 0;
+  color: #1a2a3a;
+}
+
+.score-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 32px;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(56,182,255,0.08);
+  margin-left: 330px; /* Add left margin for sidebar space */
+}
+
+.score-title {
+  font-size: 2.3rem;
+  font-weight: 700;
+  margin-bottom: 28px;
+  color: #0099e5;
+  letter-spacing: -1px;
+}
+
+.score-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.score-card {
+  display: flex;
+  align-items: center;
+  background: #e3f2fd;
+  border-radius: 12px;
+  padding: 18px 24px;
+  box-shadow: 0 2px 8px rgba(0,153,229,0.07);
+  transition: background 0.2s;
+}
+
+.score-card:hover {
+  background: #b6e0fe;
+}
+
+.score-info {
+  flex: 1;
+}
+
+.score-task-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 6px 0;
+  color: #1a2a3a;
+}
+
+.score-feedback {
+  font-size: 1rem;
+  color: #357ab7;
+  margin: 0;
+}
+
+.score-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0099e5;
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.score-max {
+  font-size: 1rem;
+  color: #5bbcff;
+  margin-left: 2px;
+}

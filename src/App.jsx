@@ -10,6 +10,8 @@ import Internships from './pages/Internships'
 import Reports from './pages/Reports'
 import CreateReport from './pages/CreateReport'
 import DM from './pages/DM'
+import Tasks from './pages/Tasks'
+import Score from './pages/Score'
 
 function App() {
 
@@ -25,6 +27,8 @@ function App() {
         <Route path="/reports" element={<Reports/>}/>
         <Route path="/create-report" element={<CreateReport/>}/>
         <Route path="/chat" element={<DM/>}/>
+        <Route path="/tasks" element={<Tasks/>}/>
+        <Route path="/score" element={<Score/>}/>
 {/* 
         <Route path="/" element={<ValidateIsLoggedIn><Homepage/></ValidateIsLoggedIn>}/>
         <Route path="/signup" element={<ValidateIsLoggedOut><Signup/></ValidateIsLoggedOut>}/>

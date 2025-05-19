@@ -50,7 +50,9 @@ function Homepage() {
 
   callProtectedRoute()
   return (
-    <main className="homepage-main">
+    <>
+      {/* Supervisor View */}
+      <main className="homepage-main">
       <div className="homepage-header">
         <h1>Bonjour, [Name]!</h1>
         <p className="homepage-subtitle">
@@ -82,8 +84,98 @@ function Homepage() {
             </div>
           </div>
         ))}
+      </div>      
+      </main> 
+
+
+
+
+
+
+
+
+         {/* Trainee View */}
+         <main className="homepage-main">
+      <div className="homepage-header">
+        <h1>Buenos Dias, [Name]!</h1>
+        <p className="homepage-subtitle">
+          One-swipe away from unlocking your future.
+        </p>
+        <p className="homepage-date">23 May 2024</p>
       </div>
-    </main>
+
+      <div className="homepage-searchbar">
+        <span className="search-icon">🔍</span>
+        <input
+          type="text"
+          placeholder="Find..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </div>
+
+      <div className="homepage-cards">
+        {filteredCards.map((card) => (
+          <div className="homepage-card" key={card.id}>
+            <div className="homepage-card-img">
+              <img src={card.image} alt={card.name} />
+            </div>
+            <div className="homepage-card-info">
+              <h3>{card.name}</h3>
+              <p>{card.company}</p>
+              <span className="homepage-card-manage">Apply</span>
+            </div>
+          </div>
+        ))}
+      </div>      
+      </main> 
+
+
+
+
+
+
+
+
+
+
+
+         {/* Student View */}
+         <main className="homepage-main">
+      <div className="homepage-header">
+        <h1>Buenos Dias, [Name]!</h1>
+        <p className="homepage-subtitle">
+          One-swipe away from unlocking your future.
+        </p>
+        <p className="homepage-date">23 May 2024</p>
+      </div>
+
+      <div className="homepage-searchbar">
+        <span className="search-icon">🔍</span>
+        <input
+          type="text"
+          placeholder="Find..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </div>
+
+      <div className="homepage-cards">
+        {filteredCards.map((card) => (
+          <div className="homepage-card" key={card.id}>
+            <div className="homepage-card-img">
+              <img src={card.image} alt={card.name} />
+            </div>
+            <div className="homepage-card-info">
+              <h3>{card.name}</h3>
+              <p>{card.company}</p>
+              <span className="homepage-card-manage">Apply</span>
+            </div>
+          </div>
+        ))}
+      </div>      
+      </main> 
+    </>
   )
 }
 

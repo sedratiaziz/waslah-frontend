@@ -39,11 +39,17 @@ function Navbar() {
           <span className="icon">💬</span>
           Messages
         </Link>
-        <Link to="#" className="menu-item">
+        <Link to="/tasks" className="menu-item">
           <span className="icon">⚙️</span>
-          Settings
+          Tasks
+        </Link>
+        <Link to="/score" className="menu-item">
+          <span className="icon">⚙️</span>
+          Score
         </Link>
         
+
+
         {!user && (
           <>
             <Link to="/login" className="menu-item">
