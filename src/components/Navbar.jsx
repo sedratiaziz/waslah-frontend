@@ -9,47 +9,89 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="profile-section">
+        {!user && (
+          <div className="profile-image">
+            <h3>Waslah Logo</h3>
+          </div> 
+        )}
+        {user && (
+        <>
         <div className="profile-image">
           <img src="/path-to-profile-image.jpg" alt="Profile" />
         </div>
-        <div className="profile-info">
-          {user ? (
-            <h2>Welcome, {user.username}!</h2>
-          ) : (
-            <h2>Welcome!</h2>
-          )}
-          <p>Internship Manager</p>
+        <div className="profile-info">        
+              <h2>Welcome, {user.username}!</h2>                                
+              <p>Internship Manager</p>
         </div>
+          </>
+        )}
       </div>
 
+
+
       <div className="nav-menu">
-        <Link to="/" className="menu-item active">
+
+        {/* Student menu */}
+        {user?.type === "student" && (
+          <>
+            <Link to="/internships" className="menu-item">
+              <span className="icon">👥</span>
+              Internships
+            </Link>                        
+          </>
+        )}
+
+        {/* Trainee menu */}
+        {user?.type === "trainee" && (
+          <>
+            <Link to="/internships" className="menu-item">
+              <span className="icon">👥</span>
+              Internships
+            </Link>
+            <Link to="/tasks" className="menu-item">
+              <span className="icon">⚙️</span>
+              Tasks
+            </Link>
+            <Link to="/score" className="menu-item">
+              <span className="icon">🏆</span>
+              Score
+            </Link>
+            <Link to="/chat" className="menu-item">
+              <span className="icon">💬</span>
+              Chat
+            </Link>
+          </>
+        )}
+
+        {/* Supervisor menu */}
+        {user?.type === "supervisor" && (
+          <>
+            <Link to="/internships" className="menu-item">
+              <span className="icon">👥</span>
+              Internships
+            </Link>
+            <Link to="/trainees" className="menu-item">
+              <span className="icon">👤</span>
+              Trainees
+            </Link>
+            <Link to="/reports" className="menu-item">
+              <span className="icon">📄</span>
+              Reports
+            </Link>
+            <Link to="/create-report" className="menu-item">
+              <span className="icon">📝</span>
+              Create Report
+            </Link>
+          </>
+        )}
+
+        {/* Default menu for all users */}
+        <Link to="/about" className="menu-item active">
           <span className="icon">📊</span>
-          Dashboard
+          What is Waslah?
         </Link>
-        <Link to="/internships" className="menu-item">
-          <span className="icon">👥</span>
-          Interns
-        </Link>
-        <Link to="/reports" className="menu-item">
-          <span className="icon">📄</span>
-          Reports
-        </Link>
-        <Link to="/chat" className="menu-item">
-          <span className="icon">💬</span>
-          Messages
-        </Link>
-        <Link to="/tasks" className="menu-item">
-          <span className="icon">⚙️</span>
-          Tasks
-        </Link>
-        <Link to="/score" className="menu-item">
-          <span className="icon">⚙️</span>
-          Score
-        </Link>
-        
 
-
+        {/* Auth links */}
         {!user && (
           <>
             <Link to="/login" className="menu-item">
@@ -62,7 +104,7 @@ function Navbar() {
             </Link>
           </>
         )}
-        
+
         {user && (
           <button onClick={logout} className="logout-button">
             <span className="icon">🚪</span>
