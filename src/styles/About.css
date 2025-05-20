@@ -1,0 +1,113 @@
+.about-container {
+  max-width: 650px;
+  margin: 48px auto;
+  background: linear-gradient(135deg, #f8fafc 70%, #e0e7ff 100%);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(80, 80, 160, 0.10);
+  padding: 40px 32px 60px 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-title {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+  color: #3b3b6d;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.fade-in {
+  animation: fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-30px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.logo-bounce {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.about-logo {
+  width: 110px;
+  animation: bounce 1.5s infinite alternate;
+  filter: drop-shadow(0 4px 12px #b3b3e6);
+}
+
+@keyframes bounce {
+  0% { transform: translateY(0);}
+  100% { transform: translateY(-18px);}
+}
+
+.about-desc {
+  font-size: 1.2rem;
+  margin-bottom: 24px;
+  color: #444;
+  animation: slideIn 1.1s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-40px);}
+  to { opacity: 1; transform: translateX(0);}
+}
+
+.about-list {
+  text-align: left;
+  margin: 0 auto 24px auto;
+  display: inline-block;
+  padding-left: 0;
+}
+
+.list-animate {
+  opacity: 0;
+  animation: listFadeIn 0.7s forwards;
+  animation-delay: calc(var(--i) * 0.2s);
+  font-size: 1.08rem;
+  margin-bottom: 10px;
+  color: #3b3b6d;
+  background: #e0e7ff;
+  border-radius: 8px;
+  padding: 8px 16px;
+  box-shadow: 0 2px 8px rgba(80,80,160,0.06);
+}
+
+.about-list li:nth-child(1) { --i: 1; }
+.about-list li:nth-child(2) { --i: 2; }
+.about-list li:nth-child(3) { --i: 3; }
+.about-list li:nth-child(4) { --i: 4; }
+
+@keyframes listFadeIn {
+  to { opacity: 1; transform: translateX(0);}
+  from { opacity: 0; transform: translateX(-30px);}
+}
+
+.about-goal {
+  margin-top: 18px;
+  font-size: 1.1rem;
+  color: #2d3748;
+  font-weight: 500;
+  animation: fadeIn 1.6s;
+}
+
+.about-wave {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  background: url('https://svgshare.com/i/12kF.svg') repeat-x;
+  background-size: cover;
+  animation: waveMove 8s linear infinite;
+  z-index: 0;
+}
+
+@keyframes waveMove {
+  0% { background-position-x: 0; }
+  100% { background-position-x: 1000px; }
+}
