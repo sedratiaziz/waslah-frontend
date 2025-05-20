@@ -1,42 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "../styles/Internships.css";
-
-const internshipsData = [
-  {
-    id: 1,
-    image: "/internship-img1.jpg",
-    title: "UX Designer",
-    company: "Deepmind AI",
-    location: "Riyadh, Saudi Arabia",
-    type: "Full-time",
-    applicants: 120,
-    status: "Active",
-  },
-  {
-    id: 2,
-    image: "/internship-img2.jpg",
-    title: "Frontend Developer",
-    company: "Google",
-    location: "Jeddah, Saudi Arabia",
-    type: "Part-time",
-    applicants: 80,
-    status: "Closed",
-  },
-  {
-    id: 3,
-    image: "/internship-img3.jpg",
-    title: "Data Analyst",
-    company: "Microsoft",
-    location: "Dammam, Saudi Arabia",
-    type: "Remote",
-    applicants: 60,
-    status: "Active",
-  },
-];
 
 function Internships() {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("All");
+  const [internshipsData, setInternshipsData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    async function fetchInternships() {
+      setLoading(true);
+      setError(null);
+      try {
+        const res = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/job-offer`
+        );
+        setInternshipsData(res.data);
+      } catch (err) {
+        setError("Failed to load internships.");
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchInternships();
+  }, []);
 
   const filteredInternships = internshipsData.filter((item) => {
     const matchesSearch =
@@ -56,7 +45,9 @@ function Internships() {
             Manage your posted internship opportunities
           </p>
         </div>
-        <button className="internships-create-btn">+ Create New Internship</button>
+        <button className="internships-create-btn">
+          + Create New Internship
+        </button>
       </div>
 
       <div className="internships-controls">
@@ -91,28 +82,39 @@ function Internships() {
         </div>
       </div>
 
+      {loading && <div className="loading">Loading internships...</div>}
+      {error && <div className="error">{error}</div>}
+
       <div className="internships-list">
-        {filteredInternships.map((item) => (
-          <div className="internship-card" key={item.id}>
-            <div className="internship-img">
-              <img src={item.image} alt={item.title} />
-            </div>
-            <div className="internship-info">
-              <h2>{item.title}</h2>
-              <p className="company">{item.company}</p>
-              <p className="location">{item.location}</p>
-              <div className="internship-meta">
-                <span className="type">{item.type}</span>
-                <span className={`status ${item.status.toLowerCase()}`}>{item.status}</span>
-                <span className="applicants">{item.applicants} applicants</span>
-              </div>
-            </div>
-            <button className="manage-btn">Manage</button>
-          </div>
-        ))}
-        {filteredInternships.length === 0 && (
+        {!loading && !error && filteredInternships.length === 0 && (
           <div className="no-results">No internships found.</div>
         )}
+        {!loading &&
+          !error &&
+          filteredInternships.map((item) => (
+            <div className="internship-card" key={item.id}>
+              <div className="internship-img">
+                <img src={item.image || "/vite.svg"} alt={item.title} />
+              </div>
+              <div className="internship-info">
+                <h2>{item.title}</h2>
+                <p className="company">{item.company}</p>
+                <p className="location">{item.location}</p>
+                <div className="internship-meta">
+                  <span className="type">{item.type}</span>
+                  <span
+                    className={`status ${item.status?.toLowerCase()}`}
+                  >
+                    {item.status}
+                  </span>
+                  <span className="applicants">
+                    {item.applicants || 0} applicants
+                  </span>
+                </div>
+              </div>
+              <button className="manage-btn">Manage</button>
+            </div>
+          ))}
       </div>
     </main>
   );

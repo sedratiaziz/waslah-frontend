@@ -13,6 +13,7 @@ import DM from './pages/DM'
 import Tasks from './pages/Tasks'
 import Score from './pages/Score'
 import About from './pages/About'
+import CreateInternship from './pages/CreateInternship'
 
 function App() {
 
@@ -20,7 +21,7 @@ function App() {
   return (
     <>
       <Navbar/>
-      <Routes> ]
+      <Routes>
         <Route path="/signup" element={<ValidateIsLoggedOut><Signup/></ValidateIsLoggedOut>}/>
         <Route path="/login" element={<ValidateIsLoggedOut><Login/></ValidateIsLoggedOut>}/>
         
@@ -32,6 +33,7 @@ function App() {
         <Route path="/tasks" element={<ValidateIsLoggedIn><Tasks/></ValidateIsLoggedIn>}/>
         <Route path="/score" element={<ValidateIsLoggedIn><Score/></ValidateIsLoggedIn>}/>
         <Route path="/about" element={<About/>}/>
+        <Route path="/create-internship" element={<ValidateIsLoggedIn><CreateInternship/></ValidateIsLoggedIn>}/>
       </Routes>
     </>
   )

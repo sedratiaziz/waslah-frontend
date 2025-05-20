@@ -6,7 +6,12 @@ function Signup() {
 
     const [formData, setFormData] = useState({
         username:"",
-        password:""
+        password:"",
+        email:"",
+        phone:"",
+        age:"",
+        experience:"",
+        degree: "",
     })
 
     const navigate = useNavigate()
@@ -32,6 +37,7 @@ function Signup() {
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">Username:</label>
         <input
+        required
          type="text"
          name='username'
          id='username'
@@ -41,16 +47,67 @@ function Signup() {
 
         <label htmlFor="password">Password:</label>
         <input
+          required
          type="password"
          name='password'
          id='password'
          value={formData.password}
          onChange={handleChange}
           />
+        
+        <label htmlFor="email">E-mail:</label>
+        <input
+          required
+         type="email"
+         name='email'
+         id='email'
+         value={formData.email}
+         onChange={handleChange}
+          />
 
-          <button>Submit</button>
-      </form>
-    </div>
+      <label htmlFor="phone">Phone:</label>
+      <input
+        required
+        type="tel"
+        name="phone"
+        id="phone"
+        value={formData.phone}
+        onChange={handleChange}
+      />
+
+      <label htmlFor="age">Age:</label>
+      <input
+        required
+        type="number"
+        name="age"
+        id="age"
+        value={formData.age}
+        onChange={handleChange}
+      />
+
+      <label htmlFor="experience">Experience:</label>
+      <input
+        required
+        type="text"
+        name="experience"
+        id="experience"
+        value={formData.experience}
+        onChange={handleChange}
+      />
+
+      <label htmlFor="degree">Degree:</label>
+      <input
+        required
+        type="text"
+        name="degree"
+        id="degree"
+        value={formData.degree}
+        onChange={handleChange}
+      />
+
+      <button>Submit</button>
+    </form>
+  </div>
   )
 }
 
