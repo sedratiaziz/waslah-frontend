@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/DM.css";
-
+import { index,createMessage } from "../services/dmService";
 const messages = [
   {
     id: 1,

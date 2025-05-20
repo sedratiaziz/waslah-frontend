@@ -28,7 +28,7 @@ function Signup() {
     }
   return (
     <div>
-      
+      <h1>Sign up</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">Username:</label>
         <input
