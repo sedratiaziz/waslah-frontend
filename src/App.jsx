@@ -20,15 +20,15 @@ function App() {
     <>
       <Navbar/>
       <Routes>
-        <Route path="/" element={<Homepage/>}/>
         <Route path="/signup" element={<Signup/>}/>
         <Route path="/login" element={<Login/>}/>
-        <Route path="/internships" element={<Internships/>}/>
-        <Route path="/reports" element={<Reports/>}/>
-        <Route path="/create-report" element={<CreateReport/>}/>
-        <Route path="/chat" element={<DM/>}/>
-        <Route path="/tasks" element={<Tasks/>}/>
-        <Route path="/score" element={<Score/>}/>
+        <Route path="/" element={<ValidateIsLoggedIn><Homepage/></ValidateIsLoggedIn>}/>
+        <Route path="/internships" element={<ValidateIsLoggedIn><Internships/></ValidateIsLoggedIn>}/>
+        <Route path="/reports" element={<ValidateIsLoggedIn><Reports/></ValidateIsLoggedIn>}/>
+        <Route path="/create-report" element={<ValidateIsLoggedIn><CreateReport/></ValidateIsLoggedIn>}/>
+        <Route path="/chat" element={<ValidateIsLoggedIn><DM/></ValidateIsLoggedIn>}/>
+        <Route path="/tasks" element={<ValidateIsLoggedIn><Tasks/></ValidateIsLoggedIn>}/>
+        <Route path="/score" element={<ValidateIsLoggedIn><Score/></ValidateIsLoggedIn>}/>
 {/* 
         <Route path="/" element={<ValidateIsLoggedIn><Homepage/></ValidateIsLoggedIn>}/>
         <Route path="/signup" element={<ValidateIsLoggedOut><Signup/></ValidateIsLoggedOut>}/>
