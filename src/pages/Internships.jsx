@@ -1,4 +1,11 @@
-import React, { useState, useEffect, use } from "react";
+
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
+
+
+import { index } from "../services/internshipService";
+
+
 import axios from "axios";
 import "../styles/Internships.css";
 import { useContext } from "react";
@@ -14,6 +21,9 @@ function Internships() {
   const [internshipsData, setInternshipsData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const nav=useNavigate();
+
 
   const { offerId } = useParams(); // expects route like /apply/:offerId
 
@@ -55,8 +65,11 @@ function Internships() {
             Manage your posted internship opportunities
           </p>
         </div>
-        <Link to="/create-internship">
+
+        <button className="internships-create-btn" onClick={()=> nav("/create-internship")}>
+
         <button className="internships-create-btn">
+
           + Create New Internship
         </button>
         </Link>
