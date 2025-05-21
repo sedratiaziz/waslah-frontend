@@ -1,15 +1,32 @@
+
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
+
+
+import { index } from "../services/internshipService";
+
+
 import axios from "axios";
 import "../styles/Internships.css";
-import { index } from "../services/internshipService";
+import { useContext } from "react";
+import { authContext } from '../context/AuthContext'
+import { Link } from "react-router";
+import { useParams } from "react-router";
+  
+
+
 function Internships() {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("All");
   const [internshipsData, setInternshipsData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
   const nav=useNavigate();
+
+
+  const { offerId } = useParams(); // expects route like /apply/:offerId
+
   useEffect(() => {
     async function fetchInternships() {
       setLoading(true);
@@ -37,6 +54,8 @@ function Internships() {
     return matchesSearch && matchesFilter;
   });
 
+  const { user } = useContext(authContext);
+
   return (
     <main className="internships-main">
       <div className="internships-header">
@@ -46,9 +65,14 @@ function Internships() {
             Manage your posted internship opportunities
           </p>
         </div>
+
         <button className="internships-create-btn" onClick={()=> nav("/create-internship")}>
+
+        <button className="internships-create-btn">
+
           + Create New Internship
         </button>
+        </Link>
       </div>
 
       <div className="internships-controls">
@@ -109,11 +133,23 @@ function Internships() {
                     {item.status}
                   </span>
                   <span className="applicants">
-                    {item.applicants || 0} applicants
+                    {item.applications.length} applicants
                   </span>
                 </div>
               </div>
-              <button className="manage-btn">Manage</button>
+              {user.type === "supervisor" && (     
+                <Link to={`/${item._id}/manage`}>           
+                  <button className="manage-btn">Manage</button>
+                </Link>
+              )}
+              
+              {user.type === "student" && (   
+                <>
+                <Link to={`/${item._id}/apply`}>
+                  <button className="manage-btn">Apply</button>                
+                </Link>                             
+                </>
+              )}
             </div>
           ))}
       </div>

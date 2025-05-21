@@ -14,6 +14,9 @@ import Tasks from './pages/Tasks'
 import Score from './pages/Score'
 import About from './pages/About'
 import CreateInternship from './pages/CreateInternship'
+import Apply from './pages/Apply'
+import ManageInternship from './pages/ManageInternship'
+import EditInternship from './pages/EditInternship'
 
 function App() {
 
@@ -33,6 +36,11 @@ function App() {
         <Route path="/tasks" element={<ValidateIsLoggedIn><Tasks/></ValidateIsLoggedIn>}/>
         <Route path="/score" element={<ValidateIsLoggedIn><Score/></ValidateIsLoggedIn>}/>
         <Route path="/create-internship" element={<ValidateIsLoggedIn><CreateInternship/></ValidateIsLoggedIn>}/>
+        <Route path='/:offerId/apply' element={<ValidateIsLoggedIn><Apply /></ValidateIsLoggedIn>}/>
+        <Route path='/:offerId/manage' element={<ValidateIsLoggedIn><ManageInternship /></ValidateIsLoggedIn>}/>
+        <Route path='/:offerId/edit' element={<ValidateIsLoggedIn><EditInternship /></ValidateIsLoggedIn>}/>
+        
+        <Route path="*" element={<h1>404 Not Found</h1>}/>
       </Routes>
     </>
   )
