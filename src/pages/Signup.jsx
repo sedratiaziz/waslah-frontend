@@ -6,7 +6,14 @@ function Signup() {
 
     const [formData, setFormData] = useState({
         username:"",
-        password:""
+        password:"",
+        email:"",
+        phone:"",
+        age:"",
+        experience:"",
+        degree:"",
+        type:"student",
+        cv:"",
     })
 
     const navigate = useNavigate()
@@ -47,7 +54,23 @@ function Signup() {
          value={formData.password}
          onChange={handleChange}
           />
-
+        <label htmlFor="email">email:</label>
+        <input type="text" name='email' id='email' value={formData.email} onChange={handleChange}/>
+        <label htmlFor="phone">phone:</label>
+        <input type="text" name='phone' id='phone' value={formData.phone} onChange={handleChange} />
+        <label htmlFor="age">age:</label>
+        <input type="number" name='age' id='age' value={formData.age} onChange={handleChange} />
+        <label htmlFor="experience">experience:</label>
+        <input type="number" name='experience' id='experience' value={formData.experience} onChange={handleChange} />
+        <label htmlFor="degree">degree:</label>
+        <input type="text" name='degree' id='degree' value={formData.degree} onChange={handleChange} />
+        <label htmlFor="type">type:</label>
+        <select name='type' id='type' value={formData.type} onChange={handleChange}>
+            <option value="student">student</option>
+            <option value="supervisor">Supervisor</option>
+          </select>
+        <label htmlFor="cv">cv:</label>
+        <input type="text" name='cv' id='cv' value={formData.cv} onChange={handleChange} />
           <button>Submit</button>
       </form>
     </div>
