@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 import axios from "axios";
 import "../styles/Internships.css";
-
+import { index } from "../services/internshipService";
 function Internships() {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("All");
   const [internshipsData, setInternshipsData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const nav=useNavigate();
   useEffect(() => {
     async function fetchInternships() {
       setLoading(true);
@@ -45,7 +46,7 @@ function Internships() {
             Manage your posted internship opportunities
           </p>
         </div>
-        <button className="internships-create-btn">
+        <button className="internships-create-btn" onClick={()=> nav("/create-internship")}>
           + Create New Internship
         </button>
       </div>

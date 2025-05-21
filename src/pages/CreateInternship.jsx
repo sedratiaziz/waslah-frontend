@@ -53,7 +53,7 @@ function CreateInternship() {
         <label>Requirements</label>
         <textarea name="requirements" value={formData.requirements} onChange={handleChange} required />
         <label>Corporation ID</label>
-        <input name="CorporationName" value={formData.CorporationName} onChange={handleChange} required placeholder="Enter Corporation ObjectId" />
+        <input name="CorporationName" value={formData.CorporationName} onChange={handleChange} placeholder="Enter Corporation ObjectId" />
         <label>Start Date</label>
         <input type="date" name="startDate" value={formData.startDate} onChange={handleChange} required />
         <label>Application End Date</label>

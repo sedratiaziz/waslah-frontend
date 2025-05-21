@@ -22,9 +22,9 @@ function App() {
     <>
       <Navbar/>
       <Routes>
+        <Route path="/about" element={<About/>}/>
         <Route path="/signup" element={<ValidateIsLoggedOut><Signup/></ValidateIsLoggedOut>}/>
         <Route path="/login" element={<ValidateIsLoggedOut><Login/></ValidateIsLoggedOut>}/>
-        
         <Route path="/" element={<ValidateIsLoggedIn><Homepage/></ValidateIsLoggedIn>}/>
         <Route path="/internships" element={<ValidateIsLoggedIn><Internships/></ValidateIsLoggedIn>}/>
         <Route path="/reports" element={<ValidateIsLoggedIn><Reports/></ValidateIsLoggedIn>}/>
@@ -32,7 +32,6 @@ function App() {
         <Route path="/chat" element={<ValidateIsLoggedIn><DM/></ValidateIsLoggedIn>}/>
         <Route path="/tasks" element={<ValidateIsLoggedIn><Tasks/></ValidateIsLoggedIn>}/>
         <Route path="/score" element={<ValidateIsLoggedIn><Score/></ValidateIsLoggedIn>}/>
-        <Route path="/about" element={<About/>}/>
         <Route path="/create-internship" element={<ValidateIsLoggedIn><CreateInternship/></ValidateIsLoggedIn>}/>
       </Routes>
     </>

@@ -12,6 +12,8 @@ function Signup() {
         age:"",
         experience:"",
         degree: "",
+        type:"student",
+        cv:""
     })
 
     const navigate = useNavigate()
@@ -104,7 +106,28 @@ function Signup() {
         value={formData.degree}
         onChange={handleChange}
       />
-
+      <label htmlFor="type">Type:</label>
+      <select
+        required
+        name="type"
+        id="type"
+        value={formData.type}
+        onChange={handleChange}
+      >
+        <option value="student">Student</option>
+        <option value="supervisor">Supervisor</option>
+        </select>
+      <label htmlFor="cv">CV:</label>
+      <input
+        required
+        type="file"
+        name="cv"
+        id="cv"
+        accept=".pdf,.doc,.docx"
+        onChange={(e) => {
+          setFormData({ ...formData, cv: e.target.files[0] });
+        }}
+      />
       <button>Submit</button>
     </form>
   </div>
