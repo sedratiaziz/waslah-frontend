@@ -55,9 +55,11 @@ function Internships() {
             Manage your posted internship opportunities
           </p>
         </div>
+        <Link to="/create-internship">
         <button className="internships-create-btn">
           + Create New Internship
         </button>
+        </Link>
       </div>
 
       <div className="internships-controls">
@@ -118,12 +120,14 @@ function Internships() {
                     {item.status}
                   </span>
                   <span className="applicants">
-                    {item.applicants || 0} applicants
+                    {item.applications.length} applicants
                   </span>
                 </div>
               </div>
-              {user.type === "supervisor" && (                
-                <button className="manage-btn">Manage</button>
+              {user.type === "supervisor" && (     
+                <Link to={`/${item._id}/manage`}>           
+                  <button className="manage-btn">Manage</button>
+                </Link>
               )}
               
               {user.type === "student" && (   

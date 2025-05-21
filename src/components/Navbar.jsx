@@ -81,11 +81,7 @@ function Navbar() {
             <Link to="/create-report" className="menu-item">
               <span className="icon">📝</span>
               Create Report
-            </Link>
-            <Link to="/create-internship" className="menu-item">
-              <span className="icon">➕</span>
-              Create Internship
-            </Link>
+            </Link>            
           </>
         )}
 
