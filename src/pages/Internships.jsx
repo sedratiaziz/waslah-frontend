@@ -1,6 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import axios from "axios";
 import "../styles/Internships.css";
+import { useContext } from "react";
+import { authContext } from '../context/AuthContext'
+import { Link } from "react-router";
+import { useParams } from "react-router";
+  
+
 
 function Internships() {
   const [search, setSearch] = useState("");
@@ -8,6 +14,8 @@ function Internships() {
   const [internshipsData, setInternshipsData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const { offerId } = useParams(); // expects route like /apply/:offerId
 
   useEffect(() => {
     async function fetchInternships() {
@@ -35,6 +43,8 @@ function Internships() {
       filter === "All" ? true : item.status === filter;
     return matchesSearch && matchesFilter;
   });
+
+  const { user } = useContext(authContext);
 
   return (
     <main className="internships-main">
@@ -112,7 +122,17 @@ function Internships() {
                   </span>
                 </div>
               </div>
-              <button className="manage-btn">Manage</button>
+              {user.type === "supervisor" && (                
+                <button className="manage-btn">Manage</button>
+              )}
+              
+              {user.type === "student" && (   
+                <>
+                <Link to={`/${item._id}/apply`}>
+                  <button className="manage-btn">Apply</button>                
+                </Link>                             
+                </>
+              )}
             </div>
           ))}
       </div>
