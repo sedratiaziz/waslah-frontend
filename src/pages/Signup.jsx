@@ -119,7 +119,6 @@ function Signup() {
         </select>
       <label htmlFor="cv">CV:</label>
       <input
-        required
         type="file"
         name="cv"
         id="cv"

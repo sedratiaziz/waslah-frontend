@@ -67,12 +67,9 @@ function Internships() {
         </div>
 
         <button className="internships-create-btn" onClick={()=> nav("/create-internship")}>
-
-        <button className="internships-create-btn">
-
           + Create New Internship
         </button>
-        </Link>
+        
       </div>
 
       <div className="internships-controls">
