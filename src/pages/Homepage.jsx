@@ -1,6 +1,5 @@
 import { useContext, useEffect } from 'react'
 import { authContext } from '../context/AuthContext'
-import axios from 'axios'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -80,10 +79,16 @@ function Homepage() {
 
   async function callProtectedRoute() {
     const token = localStorage.getItem("token")
-    const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/test-jwt/checkout`, {
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/test-jwt/checkout`, {
+      method: 'GET',
       headers: { Authorization: `Bearer ${token}` }
     })
-    console.log(response.data)
+    if (!response.ok) {
+      console.error('Protected route call failed', response.status)
+      return
+    }
+    const data = await response.json()
+    console.log(data)
   }
 
   useEffect(() => {
